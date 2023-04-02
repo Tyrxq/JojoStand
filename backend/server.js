@@ -14,7 +14,7 @@ const openai = new OpenAIApi(configuration);
 
 const predict = async function() {
     const response = await openai.createImage({
-        prompt: "A realistic photo of a generated stand from JoJo's Bizarre Adventure with a black background,no crop and no other objects in frame. Stand Appearance: Steel Heart takes the form of a humanoid robot made of various metals, with a smooth, grey exterior. Its eyes are a bright yellow, and its arms and legs are made of interlocking metal plates. ",
+        prompt: "A realistic photo of a generated stand from JoJo's Bizarre Adventure with a black background,anime key visual of Star Dust Platinum and no other objects in frame. Stand Appearance: Endless Morph appears as a humanoid figure with a black hooded robe and a jagged white mask. ",
         n: 3,
         size: "512x512",
         response_format:'b64_json',
@@ -27,7 +27,21 @@ const predict = async function() {
  async function generate() {
     const response = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt:"Generate your own random stand power from JoJo bizarre adventure. Include Stand stats, Stand Ability, Stand Appearance and Stand weakness.",
+        prompt:`Generate your own random stand power from JoJo bizarre adventure in this json format 
+        {
+            "Name": "",
+            "Stats": {
+                "Destructive Power": "",
+                "Speed": "",
+                "Range": "",
+                "Durability": ""
+            },
+            "Ability": "",
+            "Appearance": "",
+            "Weakness": ""
+            }
+        }
+        ,`,
         temperature: .75,
         max_tokens: 1000
     });
@@ -36,7 +50,7 @@ const predict = async function() {
     return response.data;
 }
 
-/*predict().then(
+predict().then(
     response => {
         const now = Date.now();
      
