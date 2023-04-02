@@ -12,19 +12,19 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 
-const predict = async function() {
+ async function predict(appearance) {
     const response = await openai.createImage({
-        prompt: "A realistic photo of a generated stand from JoJo's Bizarre Adventure with a black background,anime key visual of Star Dust Platinum and no other objects in frame. Stand Appearance: Endless Morph appears as a humanoid figure with a black hooded robe and a jagged white mask. ",
+        prompt: "A realistic photo of a generated stand from JoJo's Bizarre Adventure with a black background,anime key visual of Star Dust Platinum and no other objects in frame. Stand Appearance: " + appearance ,
         n: 3,
-        size: "512x512",
+        size: "256x256",
         response_format:'b64_json',
     });
 
-
+    console.log(appearance);
     return response.data;
 }
 
- async function generate() {
+ async function generate(standPicture) {
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt:`Generate your own random stand power from JoJo bizarre adventure in this json format 
@@ -47,9 +47,28 @@ const predict = async function() {
     });
     console.log(response.data.choices[0].text);
 
-    return response.data;
+    jsonObject = JSON.parse(response.data.choices[0].text)
+
+    standPicture(jsonObject.Appearance).then(
+        response => {
+            const now = Date.now();
+         
+            for(let i = 0; i < response.data.length; i++)
+            {
+                const b64 = response.data[i]['b64_json'];
+                const buffer = Buffer.from(b64,"base64");
+                const filename = `images/image_${now}_${i}.png`;
+                console.log("Writing image" + filename)
+                fs.writeFileSync(filename,buffer);           
+            }
+          
+        }
+    )
+
+    return jsonObject;
 }
 
+/*
 predict().then(
     response => {
         const now = Date.now();
@@ -66,4 +85,7 @@ predict().then(
     }
 )
 
-//generate()
+generate()
+*/
+
+generate(predict);
