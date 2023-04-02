@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { Configuration, OpenAIApi } = require("openai");
-const fs = require('fs');
+//const fs = require('fs');
 
 
 const key = process.env.OPENAI_API_KEY
@@ -11,6 +11,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+/*
 const predict = async function() {
     const response = await openai.createImage({
         prompt: "A realistic photo of a generated stand from JoJo's Bizarre Adventure with a black background,no crop and no other objects in frame. Stand Appearance: 「Timeless Dragon」 takes the form of a sleek and powerful dragon made entirely of shimmering, metallic silver. Its eyes glow with a fierce blue light, and its wingspan stretches to nearly 20 feet. The Stand's scales are intricately detailed, giving it the appearance of a living work of art. ",
@@ -22,8 +23,21 @@ const predict = async function() {
 
     return response.data;
 }
+*/
 
-predict().then(
+ async function generate(){
+    const response = await openai.createChatCompletion(
+        {
+            model: "text-davinci-300",
+            pronmt:"Generate your own random stand power from JoJo bizarre adventure and the name Tyriq. Include Stand stats, Stand Ability and Stand weakness",
+            temperature: 0,
+            max_tokens: 1000
+        }
+    )
+   console.log(response.data.choices[0].text);
+}
+
+/*predict().then(
     response => {
         const now = Date.now();
      
@@ -38,3 +52,5 @@ predict().then(
       
     }
 )
+*/
+generate()
