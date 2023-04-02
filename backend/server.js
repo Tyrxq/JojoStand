@@ -16,7 +16,7 @@ const openai = new OpenAIApi(configuration);
     const response = await openai.createImage({
         prompt: "A realistic photo of a generated stand from JoJo's Bizarre Adventure with a black background,anime key visual of Star Dust Platinum and no other objects in frame. Stand Appearance: " + appearance ,
         n: 3,
-        size: "256x256",
+        size: "512x512",
         response_format:'b64_json',
     });
 
@@ -67,25 +67,5 @@ const openai = new OpenAIApi(configuration);
 
     return jsonObject;
 }
-
-/*
-predict().then(
-    response => {
-        const now = Date.now();
-     
-        for(let i = 0; i < response.data.length; i++)
-        {
-            const b64 = response.data[i]['b64_json'];
-            const buffer = Buffer.from(b64,"base64");
-            const filename = `images/image_${now}_${i}.png`;
-            console.log("Writing image" + filename)
-            fs.writeFileSync(filename,buffer);           
-        }
-      
-    }
-)
-
-generate()
-*/
 
 generate(predict);
