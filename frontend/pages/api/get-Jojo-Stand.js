@@ -32,7 +32,7 @@ export default async function handler(req,res){
             }
         }
         `,
-        temperature: .75,
+        temperature: .65,
         max_tokens: 1000
     });
 
