@@ -4,8 +4,17 @@ import {useState} from "react"
 export default function Home(props) {
     
     const [jojoStand,setJostand] = useState({
-       
-      });
+        "name": "",
+        "stats": {
+            "destructivePower": "",
+            "speed": "",
+            "range": "",
+            "durability": ""
+        },
+        "ability": "",
+        "appearance": "",
+        "weakness": ""
+    });
   
 
   
@@ -20,13 +29,14 @@ export default function Home(props) {
         },
       })
 
-      const stand = await response.json()
-      setJostand(stand)
-      console.log(jojoStand.text)
+      const stand = await response.json();
+      setJostand(JSON.parse(stand.text));
+      console.log(JSON.stringify(jojoStand));
       
       
 
     }
+    
     
 
 
@@ -41,34 +51,34 @@ export default function Home(props) {
 
         </form>
         
-        {/* 
+        
         <div className ="jojo-info">
 
-          <h2>{jojoStand["standInfo"].Name}</h2>
+          <h2>{jojoStand.name }</h2>
           
           <h3>Ability</h3>
           
-          <h4>{jojoStand["standInfo"].Ability}</h4>
+          <h4>{jojoStand.ability}</h4>
           
           <h3>Stats</h3>
           
-          <p>Destructive Power:{jojoStand["standInfo"].Stats["Destructive Power"]}</p>
+          <p>Destructive Power:{jojoStand.stats.destructivePower}</p>
           
-          <p>Speed:{jojoStand["standInfo"].Stats["Speed"]}</p>
+          <p>Speed:{jojoStand.stats.speed}</p>
           
-          <p>Range:{jojoStand["standInfo"].Stats["Range"]}</p>
+          <p>Range:{jojoStand.stats.range}</p>
           
-          <p>Durability:{jojoStand["standInfo"].Stats["Durability"]}</p>
+          <p>Durability:{jojoStand.stats.durability}</p>
           
           <h3>Weakness</h3>
           
-          <h4>{jojoStand["standInfo"].Weakness}</h4>
+          <h4>{jojoStand.weakness}</h4>
 
-          <img src={jojoStand.standPics} />
+          {/*<img src={jojoStand.standPics} />*/}
 
 
         </div>
-        */}
+        
         
       </div>
     )
