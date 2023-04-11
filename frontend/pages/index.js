@@ -15,7 +15,8 @@ export default function Home(props) {
         "appearance": "",
         "weakness": ""
     });
-  
+    
+    const [pics,setPics] = useState([]);
 
   
     async function submit(e){
@@ -30,7 +31,9 @@ export default function Home(props) {
       })
 
       const stand = await response.json();
+      console.log(stand);
       setJostand(JSON.parse(stand.text));
+      setPics(stand.pics.data);
       console.log(JSON.stringify(jojoStand));
       
       
@@ -74,7 +77,14 @@ export default function Home(props) {
           
           <h4>{jojoStand.weakness}</h4>
 
-          {/*<img src={jojoStand.standPics} />*/}
+          
+          {pics.map((pic,index) => {
+              return(
+                <img key = {index} src={pic.url} />
+              )})
+          };
+           
+          
 
 
         </div>
