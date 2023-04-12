@@ -68,4 +68,29 @@ const openai = new OpenAIApi(configuration);
     return jsonObject;
 }
 
-generate(predict);
+//generate(predict);
+
+async function gptGenerates(){
+    const completion = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "user", content: `Generate your own random stand power from JoJo bizarre adventure in this json format and the ability should be described with 25 words or more. 
+        {
+            "Name": "",
+            "Stats": {
+                "Destructive Power": "",
+                "Speed": "",
+                "Range": "",
+                "Durability": ""
+            },
+            "Ability": "",
+            "Appearance": "",
+            "Weakness": ""
+            }
+        }
+        ,`}],
+        max_tokens:1000,
+      });
+      console.log(completion.data.choices[0].message.content);
+}
+
+gptGenerates()
