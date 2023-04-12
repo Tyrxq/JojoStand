@@ -82,7 +82,7 @@ export default function Home(props) {
               return(
                 <img key = {index} src={pic.url} />
               )})
-          };
+          }
            
           
 
