@@ -1,7 +1,9 @@
-import {useState} from "react"
+import {useState} from "react";
+import Textbox from "../components/Textbox";
 
 
-export default function Home(props) {
+
+export default function Home() {
     
     const [jojoStand,setJostand] = useState({
         "name": "",
@@ -49,17 +51,15 @@ export default function Home(props) {
     return(
       <div className = "container">
         
-        <form onSubmit = {submit}>
-          <textarea placeholder='Give details about yourself' onChange={(e) => setInput(e.target.value)}/>
-          <button type = "submit">Generate your Jojo Stand</button>
-
-
-        </form>
-        
+        {pics.map((pic,index) => {
+              return(
+                <img key = {index} src={pic.url} />
+              )})
+          }
         
         <div className ="jojo-info">
 
-          <h2>{jojoStand.name }</h2>
+          <h2>Name: {jojoStand.name }</h2>
           
           <h3>Ability</h3>
           
@@ -79,17 +79,9 @@ export default function Home(props) {
           
           <h4>{jojoStand.weakness}</h4>
 
-          
-          {pics.map((pic,index) => {
-              return(
-                <img key = {index} src={pic.url} />
-              )})
-          }
-           
-          
-
-
         </div>
+
+        <Textbox submit={submit} func = {setInput}/>
         
         
       </div>
