@@ -23,10 +23,10 @@ async function predict(appearance) {
     return response.data;
 }
 
- async function generate(standPicture) {
-    const response = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt:`Generate your own random stand power from the JoJo Bizarre Adventure Anime series in this json format 
+ async function generate(userDescription,standPicture) {
+    const response = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "system", content: `Generate your own random stand power from JoJo bizarre adventure in this json format from the user's personality and mental strength. And the ability should be described with 25 words or more. You must only respond with this json format 
         {
             "name": "",
             "stats": {
@@ -38,24 +38,24 @@ async function predict(appearance) {
             "ability": "",
             "appearance": "",
             "weakness": ""
+            }
         }
-        `,
-        temperature: .70,
-        max_tokens: 1000
-    });
+        `},{role:"user",content: userDescription}],
+        max_tokens:1000,
+      });
 
 
-    const jsonObject = JSON.parse(response.data.choices[0].text);
+    const jsonObject = JSON.parse(response.data.choices[0].message.content);
 
     const response_pic = await standPicture(jsonObject.appearance);
 
-    return {text: response.data.choices[0].text, pics: response_pic}
+    return {text: response.data.choices[0].message.content, pics: response_pic}
 }
 
 
 
 export default async function handler(req,res){
-    const response = await generate(predict);
+    const response = await generate(req.body.prompt,predict);
     res.status(200).json(response);
 }
 

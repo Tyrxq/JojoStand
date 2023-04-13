@@ -17,17 +17,19 @@ export default function Home(props) {
     });
     
     const [pics,setPics] = useState([]);
+    const [input,setInput] = useState("");
 
   
     async function submit(e){
       e.preventDefault();
 
       const response = await fetch("/api/get-Jojo-Stand",{
-        method: "GET",
+        method: "POST",
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json"
         },
+        body: JSON.stringify({ prompt: input })
       })
 
       const stand = await response.json();
@@ -48,7 +50,7 @@ export default function Home(props) {
       <div className = "container">
         
         <form onSubmit = {submit}>
-          
+          <textarea placeholder='Give details about yourself' onChange={(e) => setInput(e.target.value)}/>
           <button type = "submit">Generate your Jojo Stand</button>
 
 
