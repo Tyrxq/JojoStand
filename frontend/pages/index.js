@@ -1,6 +1,6 @@
 import {useState} from "react";
 import Textbox from "../components/Textbox";
-
+import JojoInfo from "../components/JojoInfo";
 
 
 export default function Home() {
@@ -20,6 +20,7 @@ export default function Home() {
     
     const [pics,setPics] = useState([]);
     const [input,setInput] = useState("");
+    const [bigPic,setBigPic] = useState("")
 
   
     async function submit(e){
@@ -39,6 +40,7 @@ export default function Home() {
       setJostand(JSON.parse(stand.text));
       setPics(stand.pics.data);
       console.log(JSON.stringify(jojoStand));
+      setBigPic(stand.pics.data[0].url)
       
       
 
@@ -53,33 +55,12 @@ export default function Home() {
         
         {pics.map((pic,index) => {
               return(
-                <img key = {index} src={pic.url} />
+                <img key = {index} src={pic.url} onClick= {() =>setBigPic(pic.url)} />
               )})
-          }
+        }
         
-        <div className ="jojo-info">
-
-          <h2>Name: {jojoStand.name }</h2>
-          
-          <h3>Ability</h3>
-          
-          <h4>{jojoStand.ability}</h4>
-          
-          <h3>Stats</h3>
-          
-          <p>Destructive Power:{jojoStand.stats.destructivePower}</p>
-          
-          <p>Speed:{jojoStand.stats.speed}</p>
-          
-          <p>Range:{jojoStand.stats.range}</p>
-          
-          <p>Durability:{jojoStand.stats.durability}</p>
-          
-          <h3>Weakness</h3>
-          
-          <h4>{jojoStand.weakness}</h4>
-
-        </div>
+        <JojoInfo jojoStand={jojoStand} pic = {bigPic}/>
+        
 
         <Textbox submit={submit} func = {setInput}/>
         
