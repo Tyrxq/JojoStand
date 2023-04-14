@@ -2,6 +2,7 @@
     display: grid;
     justify-items: right;
     grid-template-rows: repeat(3,256px);
+    grid-template-columns: 256px;
     background-color: black;
     height: fit-content;
    

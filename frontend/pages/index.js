@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Textbox from "../components/Textbox";
 import JojoInfo from "../components/JojoInfo";
+import Pics from "../components/Pics";
 
 
 export default function Home() {
@@ -54,15 +55,11 @@ export default function Home() {
       <div className = "container">
 
         <JojoInfo jojoStand={jojoStand} pic = {bigPic}/>
+
+
+        <Pics pictures={pics} func={setBigPic}/>
+       
         
-        <div className = "pic-container">
-          {pics.map((pic,index) => {
-                return(
-                  <img key = {index} src={pic.url} className="pic" onClick= {() =>setBigPic(pic.url)} />
-                )})
-          }
-        
-        </div>
         <Textbox submit={submit} func = {setInput}/>
         
         

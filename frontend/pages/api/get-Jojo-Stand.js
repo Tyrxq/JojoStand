@@ -16,7 +16,7 @@ async function predict(appearance) {
     const response = await openai.createImage({
         prompt: "A realistic photo of a generated stand from JoJo's Bizarre Adventure with a black background,anime key visual of Star Dust Platinum and no other objects in frame. Stand Appearance: " + appearance ,
         n: 3,
-        size: "256x256",
+        size: "512x512",
         
     });
 
