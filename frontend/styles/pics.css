@@ -1,0 +1,23 @@
+.pic-container{
+    display: grid;
+    justify-items: right;
+    grid-template-rows: repeat(3,256px);
+    background-color: black;
+    height: fit-content;
+   
+    
+   
+   
+}
+
+.pic-container img{
+    width:100%;
+   
+    
+
+   
+}
+
+.pic{
+    
+}

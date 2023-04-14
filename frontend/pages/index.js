@@ -52,17 +52,19 @@ export default function Home() {
 
     return(
       <div className = "container">
-        
-        {pics.map((pic,index) => {
-              return(
-                <img key = {index} src={pic.url} onClick= {() =>setBigPic(pic.url)} />
-              )})
-        }
-        
+
         <JojoInfo jojoStand={jojoStand} pic = {bigPic}/>
         
-
+        <div className = "pic-container">
+          {pics.map((pic,index) => {
+                return(
+                  <img key = {index} src={pic.url} className="pic" onClick= {() =>setBigPic(pic.url)} />
+                )})
+          }
+        
+        </div>
         <Textbox submit={submit} func = {setInput}/>
+        
         
         
       </div>

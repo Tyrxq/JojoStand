@@ -1,8 +1,16 @@
 .jojo-info{
- 
+    
 }
 
 #jojo-image{
-    height: 200vh;
-    width: 200vw;    
+    
+}
+
+.jojo-stand{
+    text-align: center;
+   
+}
+
+.jojo-stand img{
+   width: 512px;
 }
