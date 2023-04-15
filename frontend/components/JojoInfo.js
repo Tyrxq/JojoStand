@@ -9,6 +9,7 @@ import {
     Legend,
   } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
+import JojoStats from './JojoStats';
 
 ChartJS.register(
     RadialLinearScale,
@@ -42,46 +43,59 @@ const JojoInfo = ({jojoStand,pic}) => {
 
     if(jojoStand.name ===""){
         //loading icon or something
-        return( <Radar 
-            data = {data} 
-            height ="250px" width ="50px" 
-            options={{ 
-              
-                scales:{
-                    r:{
-                       beginAtZero:true ,
-                       min: 0,
-                       max: 5,
-                       ticks: {
-                        stepSize: 1,
-                        color:"black",
-                        callback:(value,tick,values) =>{
-                            const grade = {5: "A",4:"B",3:"C",2:"D",1:"E",0:"F"};
-                            return grade[value];
+        return(
+        <div>
+
+            <Radar 
+                data = {data} 
+                height ="250px" width ="50px" 
+                options={{ 
+                
+                    scales:{
+                        
+                        r:{
+                        beginAtZero:true ,
+                        min: 0,
+                        max: 6,
+                        pointLabels: {
+                            font: {
+                            size: 12,
+                            weight: "bolder"
                             }
                         },
+                        ticks: {
+                            stepSize: 1,
+                            color:"black",
+                            callback:(value,tick,values) =>{
+                                const grade = {6:"",5: "A",4:"B",3:"C",2:"D",1:"E",0:"F"};
+                                return grade[value];
+                                }
+                            },
+                        },
                     },
-                },
-                plugins: {
-                    tooltip: {
-                        borderWidth: 1,
-                        borderColor: "black",
-                        /* https://www.chartjs.org/docs/latest/configuration/tooltip.html#tooltip-callbacks */
-                        callbacks: {
-                          label: function(tooltipItem, data) {
-                            /* get chart.js data  */ 
-                           // var dataItem = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                            //ar labelItem = data.labels[tooltipItem.index]; 
-                            const grade = {5: "A",4:"B",3:"C",2:"D",1:"E",0:"F"};
-                            return grade[tooltipItem.raw];     
-                          }
-                        }
+                    plugins: {
+                        tooltip: {
+                            borderWidth: 1,
+                            borderColor: "black",
+                            /* https://www.chartjs.org/docs/latest/configuration/tooltip.html#tooltip-callbacks */
+                            callbacks: {
+                            label: function(tooltipItem, data) {
+                                /* get chart.js data  */ 
+                            // var dataItem = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                                //ar labelItem = data.labels[tooltipItem.index]; 
+                                const grade = {5: "A",4:"B",3:"C",2:"D",1:"E",0:"F"};
+                                return grade[tooltipItem.raw];     
+                            }
+                            }
+                        },
+                        legend: {
+                            display: false,
+                        } 
                     },
-                    legend: {
-                        display: false,
-                    } 
-                },
-                maintainAspectRatio: false }}/>)
+                    maintainAspectRatio: false }}/>
+               
+
+        </div> )
        
     }
     else{
