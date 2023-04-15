@@ -26,18 +26,20 @@ async function predict(appearance) {
  async function generate(userDescription,standPicture) {
     const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
-        messages: [{role: "system", content: `Generate your own random stand power from JoJo bizarre adventure in this json format from the user's personality and mental strength. And the ability should be described with 25 words or more. You must only respond with this json format 
+        messages: [{role: "system", content: `Generate your own random stand power from JoJo bizarre adventure in this json format from the user's personality and mental strength. And the ability should be described with 30 words or more. You must only respond with this json format 
         {
             "name": "",
             "stats": {
                 "destructivePower": "",
                 "speed": "",
                 "range": "",
-                "durability": ""
+                "stamina": "",
+                "precision": "",
+                "development": "",
             },
             "ability": "",
             "appearance": "",
-            "weakness": ""
+            "description": ""
             }
         }
         `},{role:"user",content: userDescription}],

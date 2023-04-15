@@ -12,20 +12,24 @@ export default function Home() {
             "destructivePower": "",
             "speed": "",
             "range": "",
-            "durability": ""
+            "stamina":"",
+            "precision":"",
+            "devlopment": ""
         },
         "ability": "",
         "appearance": "",
-        "weakness": ""
+        "description": ""
     });
     
     const [pics,setPics] = useState([]);
     const [input,setInput] = useState("");
-    const [bigPic,setBigPic] = useState("")
+    const [bigPic,setBigPic] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
   
     async function submit(e){
       e.preventDefault();
+      setIsLoading(true);
 
       const response = await fetch("/api/get-Jojo-Stand",{
         method: "POST",
@@ -37,6 +41,7 @@ export default function Home() {
       })
 
       const stand = await response.json();
+      setIsLoading(false);
       console.log(stand);
       setJostand(JSON.parse(stand.text));
       setPics(stand.pics.data);
@@ -54,13 +59,14 @@ export default function Home() {
     return(
       <div className = "container">
 
+
         <JojoInfo jojoStand={jojoStand} pic = {bigPic}/>
 
 
         <Pics pictures={pics} func={setBigPic}/>
        
         
-        <Textbox submit={submit} func = {setInput}/>
+        <Textbox submit={submit} func = {setInput} loading={isLoading}/>
         
         
         

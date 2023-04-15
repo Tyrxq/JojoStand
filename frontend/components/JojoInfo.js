@@ -28,11 +28,15 @@ const JojoInfo = ({jojoStand,pic}) => {
                 
                 <p>Range:{jojoStand.stats.range}</p>
                 
-                <p>Durability:{jojoStand.stats.durability}</p>
+                <p>Stamina:{jojoStand.stats.stamina}</p>
                 
-                <h3>Weakness</h3>
+                <p>Precision:{jojoStand.stats.precision}</p>
+
+                <p>Development Potential:{jojoStand.stats.development}</p>
                 
-                <h4>{jojoStand.weakness}</h4>
+                <h3>Description</h3>
+                
+                <h4>{jojoStand.description}</h4>
         
           </div>
           )
