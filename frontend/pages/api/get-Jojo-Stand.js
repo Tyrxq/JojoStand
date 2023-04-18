@@ -11,6 +11,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+//sometimes api provide additional text beyond the json and break the site.
 function lookForJson(data){
     const array = data.split('');
     let first = true;
