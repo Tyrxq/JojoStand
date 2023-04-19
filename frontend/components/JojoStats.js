@@ -38,12 +38,12 @@ const JojoStats = ({jojoStats}) => {
         },],  
     };
   return (
-    <div>
+    <div className='jojo-stats'>
       <Radar 
             data = {data} 
-            height ="250px" width ="50px" 
+            
             options={{ 
-                animation: false,
+                animation: true,
                 scales:{
                     
                     r:{
@@ -57,6 +57,9 @@ const JojoStats = ({jojoStats}) => {
                         }
                       },
                        ticks: {
+                        font: {
+                          size:11
+                        },
                         stepSize: 1,
                         color:"black",
                         callback:(value,tick,values) =>{
@@ -85,7 +88,9 @@ const JojoStats = ({jojoStats}) => {
                         display: false,
                     } 
                 },
-                maintainAspectRatio: false }}/>
+                maintainAspectRatio: false,
+                responsive: true   
+                }}/>
     </div>
   )
 }

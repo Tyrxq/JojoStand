@@ -1,8 +1,19 @@
-.jojo-info{
-    
+.jojo-stats{
+   position: relative;
+   height: 20vw;
+   min-height: 220px;
+   width:500px;
+   overflow: visible;
 }
 
-#jojo-image{
+.jojo-visual{
+    position: relative;
+    display: flex;
+    width:100%;
+    height:max-content;
+    align-items: center;
+    justify-items:center;
+    justify-content: center;
     
 }
 
@@ -12,6 +23,8 @@
 }
 
 .jojo-stand img{
-   width: 512px;
-   height: 512px;
+   width: 40%;
+   height: 40%;
+   min-height:256px;
+   min-width: 256px;
 }

@@ -6,6 +6,7 @@
     display: grid;
     grid-template-columns: auto 256px;
     grid-template-rows: auto auto;
+    column-gap: 0px;
     top: 20px;
     
     
