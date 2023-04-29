@@ -1,11 +1,13 @@
 .pic-container{
     display: grid;
     justify-items: right;
-    grid-template-rows: repeat(3,256px);
-    grid-template-columns: 256px;
+    grid-template-rows: repeat(3,33%);
+    grid-template-columns: minmax(167px,13.5vw);
     background-color: black;
-    height: fit-content;
-   
+    height:fit-content;
+    width:fit-content;
+    min-width: 167px;
+    
     
    
    
@@ -13,6 +15,8 @@
 
 .pic-container img{
     width:100%;
+    min-height: 167px;
+    
    
     
 
