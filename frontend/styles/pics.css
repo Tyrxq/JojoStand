@@ -14,7 +14,7 @@
 }
 .pic-container img{
     width:100%;
-    min-height: 167px;
+    min-height: 137px;
     
    
     
@@ -31,7 +31,7 @@
         background-color: black;
         height:fit-content;
         min-width: 167px;
-        
+        margin-bottom: 10px;
         
        
        
@@ -40,12 +40,16 @@
     .pic-container img{
         width:32vw;
         min-height: 167px;
-        height:20%;
+        height:10%;
         
        
         
     
        
+    }
+
+    .jojo-text{
+        width:95vw
     }
   
   }

@@ -5,7 +5,7 @@ const Textbox = ({submit,func,loading}) => {
     <form className = "text-container" onSubmit = {submit}>
        
         <textarea id = "textbox" placeholder='Give details about yourself' onChange={(e) => func(e.target.value)}/>
-        <button id = "text-button" type = "submit">Generate Stand</button>
+        <button id = "text-button" type = "submit">Generate </button>
         {loading && <div className="loading-spinner"></div>}
   </form>
   )
