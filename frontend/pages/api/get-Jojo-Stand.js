@@ -3,7 +3,7 @@ const { Configuration, OpenAIApi } = require("openai");
 
 
 
-const key = process.env.OPENAI_API_KEY
+const key = process.env.NEXT_PUBLIC_OPENAI_API_KEY
 
 
 const configuration = new Configuration({
