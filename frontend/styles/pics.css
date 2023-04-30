@@ -12,7 +12,6 @@
    
    
 }
-
 .pic-container img{
     width:100%;
     min-height: 167px;
@@ -22,6 +21,36 @@
 
    
 }
+
+@media screen  and (max-width:960px) {
+    .pic-container{
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        justify-self: left;
+        background-color: black;
+        height:fit-content;
+        min-width: 167px;
+        
+        
+       
+       
+    }
+
+    .pic-container img{
+        width:32vw;
+        min-height: 167px;
+        height:20%;
+        
+       
+        
+    
+       
+    }
+  
+  }
+
+
 
 .pic{
     

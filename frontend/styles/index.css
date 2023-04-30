@@ -12,6 +12,18 @@
     
 }
 
+@media screen  and (max-width:960px) {
+  .container{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    column-gap: 30px;
+    top: 20px;
+  }
+
+}
+
 @-webkit-keyframes rotate-forever {
     0% {
       -webkit-transform: rotate(0deg);
