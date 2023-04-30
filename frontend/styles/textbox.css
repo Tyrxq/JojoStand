@@ -9,6 +9,7 @@
     padding: 30px;
     resize: none;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 
@@ -18,8 +19,8 @@
     position: relative;
     justify-content: center;
     justify-items: center;
-  
     
+
 }
 
 #text-button{
