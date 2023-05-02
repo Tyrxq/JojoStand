@@ -5,9 +5,8 @@ const { Configuration, OpenAIApi } = require("openai");
 
 const key = process.env.NEXT_PUBLIC_OPENAI_API_KEY
 
-export const config ={
-    runtime: 'edge',
-}
+
+
 
 
 const configuration = new Configuration({
@@ -97,6 +96,7 @@ async function predict(appearance) {
 
 
 export default async function handler(req,res){
+    
     const response = await generate(req.body.prompt,predict);
     res.status(200).json(response);
 }
