@@ -43,10 +43,17 @@ export default function Home() {
       const stand = await response.json();
       setIsLoading(false);
       console.log(stand);
-      setJostand(JSON.parse(stand.text));
-      setPics(stand.pics.data);
-      console.log(JSON.stringify(jojoStand));
-      setBigPic(stand.pics.data[0].url)
+
+      //checks for error from request
+      if(stand.text === false){
+        console.log("There was a error from the server")
+      }else{
+        setJostand(JSON.parse(stand.text));
+        setPics(stand.pics.data);
+        console.log(JSON.stringify(jojoStand));
+        setBigPic(stand.pics.data[0].url)
+      }
+      
       
       
 
