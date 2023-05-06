@@ -6,14 +6,6 @@ import JojoStats from './JojoStats'
   
 
 const JojoInfo = ({jojoStand,pic}) => {
-
-    
-
-
-
-
-
-
     if(jojoStand.name ===""){
         //loading icon or something
        

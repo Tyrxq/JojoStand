@@ -5,8 +5,9 @@ const { Configuration, OpenAIApi } = require("openai");
 
 const key = process.env.NEXT_PUBLIC_OPENAI_API_KEY
 
-
-
+const config ={
+    runtime: 'edge',
+}
 
 
 const configuration = new Configuration({
@@ -84,13 +85,23 @@ async function predict(appearance) {
         max_tokens:1000,
       });
 
-    console.log(response.data.choices[0].message.content);
-    console.log(lookForJson(response.data.choices[0].message.content));
-    const jsonObject = JSON.parse(lookForJson(response.data.choices[0].message.content));
+    
+    let jsonObject = null;
+    try{
+         jsonObject = JSON.parse(lookForJson(response.data.choices[0].message.content));
+    } catch(e){
+        console.log(`Error found: ${e}`)
+        console.log(`Prompt: ${userDescription}`);
+        console.log(`Before filtering: ${response.data.choices[0].message.content}`);
+        console.log(`After filtering: ${lookForJson(response.data.choices[0].message.content)}`);
+        return {text: false, pics: false};
+    }
+
+    
 
     const response_pic = await standPicture(jsonObject.appearance);
 
-    return {text: lookForJson(response.data.choices[0].message.content), pics: response_pic}
+    return {text: lookForJson(response.data.choices[0].message.content), pics: response_pic};
 }
 
 
