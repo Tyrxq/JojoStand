@@ -46,7 +46,7 @@ export default function Home() {
 
       //checks for error from request
       if(stand.text === false){
-        console.log("There was a error from the server")
+        console.error("Error from server");
       }else{
         setJostand(JSON.parse(stand.text));
         setPics(stand.pics.data);
