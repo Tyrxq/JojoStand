@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Fleur De Leah
+- Font Author: Copyright 2008-2021 The Fleur De Leah Project Authors (https://github.com/googlefonts/fleurdeleah)
+- Font Source: http://fonts.gstatic.com/s/fleurdeleah/v7/AYCNpXX7ftYZWLhv9UmPJTMC5vat4I_Gdq0.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
