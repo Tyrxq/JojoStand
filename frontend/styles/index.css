@@ -1,23 +1,31 @@
 
 
 html body{
-  overflow-x: hidden;
+ 
   margin: 0;
   padding: 0;
 }
-.container{
+
+
+.generation-container{
     position: relative;
     display: grid;
     grid-template-columns: auto 256px;
     grid-template-rows: auto auto;
     column-gap: 30px;
     top: 20px;
-    
-    
+   
+}
+
+.generation-container-nothing{
+  position: relative;
+  display: flex;
+  top: 20px;
+  justify-content: center
 }
 
 @media screen  and (max-width:960px) {
-  .container{
+  .generation-container{
     position: relative;
     display: grid;
     grid-template-columns: auto;
