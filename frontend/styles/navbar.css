@@ -1,0 +1,30 @@
+.nav-backround{
+    background-image: linear-gradient(to top,#c164e6, #8909f3);
+}
+
+.links{
+
+    position: relative;
+    left:5vw;
+    
+}
+
+
+.ul-links{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5vw;
+    font-size: 18px;
+}
+
+.nav-text{
+    color: gold;
+}
+
+.nav-text:active{
+    color: gold;
+}
+
+.nav-text::after{
+    color: gold;
+}

@@ -4,6 +4,7 @@ import JojoInfo from "../components/JojoInfo";
 import Pics from "../components/Pics";
 
 
+
 export default function Home() {
     
     const [jojoStand,setJostand] = useState({
@@ -64,21 +65,21 @@ export default function Home() {
 
 
     return(
-      <div className = "container">
+     
+    <div className = "container">
 
 
-        <JojoInfo jojoStand={jojoStand} pic = {bigPic}/>
+      <JojoInfo jojoStand={jojoStand} pic = {bigPic}/>
 
 
-        <Pics pictures={pics} func={setBigPic}/>
-       
-        
-        <Textbox submit={submit} func = {setInput} loading={isLoading}/>
-        
-        
-        
-      </div>
-    )
+      <Pics pictures={pics} func={setBigPic}/>
+
+
+      <Textbox submit={submit} func = {setInput} loading={isLoading}/>
+
+
+
+    </div>)
 }
  
  
