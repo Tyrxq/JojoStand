@@ -8,21 +8,29 @@ const Navbar = () => {
 
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary nav-backround" >
-            <div className="container-fluid">
-                <Link className="navbar-brand nav-text" href="/">Jojo's Stand Arrow</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse links" id="navbarToggleExternalContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 ul-links">
-                        <li className="nav-item ">
-                            <Link className={currentpage == "/" ?"nav-link nav-text": "nav-link"} aria-current="page" href="/">Generation</Link>
-                        </li>
-                        <li className="nav-item ">
-                            <Link className={currentpage == "/stands" ?"nav-link nav-text": "nav-link"} href="/stands">Stands</Link>
-                        </li>
-                    </ul>
-                
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            
+            <div className="container d-flex justify-content-center">
+               
+                <div className="row">
+                    <div className="col-12 d-flex justify-content-center mb-3">
+                        <h2>Jojo's Stand Arrow</h2>
+                    </div>
+
+                    <div className="col-12 d-flex justify-content-center"> 
+                        <div className="collapse navbar-collapse links" id="navbarToggleExternalContent">
+                            <ul className="navbar-nav align-items-center mx-auto">
+
+                                <Link className={currentpage == "/" ?"nav-link nav-text": "nav-link"} aria-current="page" href="/">Generation</Link>
+                                
+                                <Link className={currentpage == "/stands" ?"nav-link nav-text": "nav-link"} href="/stands">Stands</Link>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </nav>
