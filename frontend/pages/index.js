@@ -66,7 +66,7 @@ export default function Home() {
 
     return(
      
-    <div className = "container">
+    <div className = {pics.length === 0 ? "generation-container-nothing" : "generation-container" }>
 
 
       <JojoInfo jojoStand={jojoStand} pic = {bigPic}/>
@@ -75,7 +75,7 @@ export default function Home() {
       <Pics pictures={pics} func={setBigPic}/>
 
 
-      <Textbox submit={submit} func = {setInput} loading={isLoading}/>
+      <Textbox submit={submit} func = {setInput} loading={isLoading} pics = {pics}/>
 
 
 
