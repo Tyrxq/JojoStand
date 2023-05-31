@@ -10,6 +10,14 @@
     resize: none;
     overflow: hidden;
     margin-bottom: 10px;
+  
+    
+    
+}
+
+.loading-text{
+    color: grey;
+    background-color: rgb(216, 216, 216);
 }
 
 #textbox-nothing{
@@ -55,6 +63,82 @@
     border-radius: 4px;
 }
 
+
+@-webkit-keyframes rotate-forever {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-moz-keyframes rotate-forever {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate-forever {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .loading-spinner {
+    -webkit-animation-duration: 0.75s;
+    -moz-animation-duration: 0.75s;
+    animation-duration: 0.75s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: rotate-forever;
+    -moz-animation-name: rotate-forever;
+    animation-name: rotate-forever;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    animation-timing-function: linear;
+    height: 70px;
+    width: 70px;
+    border: 8px solid #7106fc;
+    border-right-color: transparent;
+    border-radius: 50%;
+    position:relative;
+    justify-self: center;
+    align-self: center;
+    right:35vw;
+    z-index:1;
+
+  }
+  
+
 @media screen and (max-width:960px) {
     #textbox{
         width: 93.5vw;
@@ -67,6 +151,7 @@
         padding: 30px;
         resize: none;
         overflow: hidden;
+        caret-color: black;
     }
     
     #textbox-nothing{
@@ -92,4 +177,30 @@
         color:gold;
         border-radius: 4px;
     }
+
+    .loading-spinner {
+        -webkit-animation-duration: 0.75s;
+        -moz-animation-duration: 0.75s;
+        animation-duration: 0.75s;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: rotate-forever;
+        -moz-animation-name: rotate-forever;
+        animation-name: rotate-forever;
+        -webkit-animation-timing-function: linear;
+        -moz-animation-timing-function: linear;
+        animation-timing-function: linear;
+        height: 70px;
+        width: 70px;
+        border: 8px solid #7106fc;
+        border-right-color: transparent;
+        border-radius: 50%;
+        position:relative;
+        justify-self: center;
+        align-self: center;
+        right:75vw;
+        z-index:3;
+    
+      }
 }
