@@ -5,7 +5,7 @@ const { Configuration, OpenAIApi } = require("openai");
 
 const key = process.env.NEXT_PUBLIC_OPENAI_API_KEY
 
-const config ={
+export const config ={
     runtime: 'edge',
 }
 
