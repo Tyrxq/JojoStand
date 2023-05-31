@@ -72,7 +72,7 @@ export default function Home() {
       <JojoInfo jojoStand={jojoStand} pic = {bigPic}/>
 
 
-      <Pics pictures={pics} func={setBigPic}/>
+      <Pics pictures={pics} func={setBigPic} selector = {bigPic}/>
 
 
       <Textbox submit={submit} func = {setInput} loading={isLoading} pics = {pics}/>

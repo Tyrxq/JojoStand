@@ -3,10 +3,11 @@
     justify-items: right;
     grid-template-rows: repeat(3,33%);
     grid-template-columns: minmax(167px,13.5vw);
-    background-color: black;
+    background-color: white;
     height:fit-content;
     width:fit-content;
     min-width: 167px;
+    border-radius: .6vw;
     
     
    
@@ -16,9 +17,11 @@
     width:100%;
     min-height: 137px;
     
-   
-    
+}
 
+.selector{
+    border: 8px solid gold;
+    border-radius:5px ;
    
 }
 
@@ -28,11 +31,11 @@
         justify-content: center;
         justify-items: center;
         justify-self: left;
-        background-color: black;
+        background-color: white;
         height:fit-content;
         min-width: 167px;
         margin-bottom: 10px;
-        
+        border-radius: 1.2vw;
        
        
     }
