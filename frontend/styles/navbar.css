@@ -27,3 +27,9 @@
 .nav-text::after{
     color: gold;
 }
+
+
+#navbar-title{
+    font-family: 'Yeseva One', cursive;
+    color: rgb(255, 221, 29);
+}

@@ -52,6 +52,7 @@ const JojoStats = ({jojoStats}) => {
                        max: 6,
                        pointLabels: {
                         font: {
+                          family: "Times New Roman",
                           size: 12,
                           weight: "bolder"
                         }
