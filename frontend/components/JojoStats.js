@@ -32,8 +32,8 @@ const JojoStats = ({jojoStats}) => {
         {
             label: '',
             data: [gradePoint[jojoStats.destructivePower], gradePoint[jojoStats.speed], gradePoint[jojoStats.range], gradePoint[jojoStats.stamina], gradePoint[jojoStats.precision], gradePoint[jojoStats.development]],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: 'rgba(255, 215, 0, 0.45)',
+            borderColor: 'rgba(255, 215, 0, 1)',
             borderWidth: 1,
         },],  
     };
@@ -53,7 +53,7 @@ const JojoStats = ({jojoStats}) => {
                        pointLabels: {
                         font: {
                           family: "Times New Roman",
-                          size: 12,
+                          size: 14,
                           weight: "bolder"
                         }
                       },
