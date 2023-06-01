@@ -32,14 +32,14 @@ export default function Home() {
       e.preventDefault();
       setIsLoading(true);
 
-      const response = await fetch("/api/get-Jojo-Stand",{
+      const response = await fetch("/api/get-edge-JojoStands",{
         method: "POST",
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ prompt: input })
-      })
+        body: JSON.stringify({ prompt: input }),
+      });
 
       const stand = await response.json();
       setIsLoading(false);
