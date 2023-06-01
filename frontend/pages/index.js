@@ -32,7 +32,7 @@ export default function Home() {
       e.preventDefault();
       setIsLoading(true);
 
-      const response = await fetch("/api/get-edge-JojoStands",{
+      const responseDescription = await fetch("/api/get-JojoStand-description",{
         method: "POST",
         headers: {
           "Accept": "application/json",
@@ -41,18 +41,32 @@ export default function Home() {
         body: JSON.stringify({ prompt: input }),
       });
 
-      const stand = await response.json();
-      setIsLoading(false);
-      console.log(stand);
+      const standDescription = await responseDescription.json();
+      
+      console.log(standDescription);
 
       //checks for error from request
-      if(stand.text === false){
+      if(standDescription.text === false){
         console.error("Error from server");
+        setIsLoading(false);
       }else{
-        setJostand(JSON.parse(stand.text));
-        setPics(stand.pics.data);
+
+        const responsePics = await fetch("/api/get-JojoStand-pictures",{
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ prompt: standDescription.text.apperance}),
+        });
+
+        const standPics = await responsePics.json();
+
+        setJostand(JSON.parse(standDescription.text));
+        setPics(standPics.pics.data);
         console.log(JSON.stringify(jojoStand));
-        setBigPic(stand.pics.data[0].url)
+        setBigPic(standPics.pics.data[0].url)
+        setIsLoading(false);
       }
       
       
