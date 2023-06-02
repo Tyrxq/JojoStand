@@ -35,6 +35,13 @@ html body{
     top: 20px;
   }
 
+  .generation-container-nothing{
+    position: relative;
+    display: flex;
+    top: 20px;
+    justify-content: center
+  }
+
 }
 
 
