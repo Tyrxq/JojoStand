@@ -32,6 +32,7 @@ async function predictFetch(appearance){
 
 export default async function handler(req){
     const json = await req.json();
+    
     const response = await predictFetch(json.prompt);
     return NextResponse.json(response);
 }

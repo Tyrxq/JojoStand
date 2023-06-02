@@ -50,19 +50,20 @@ export default function Home() {
         console.error("Error from server");
         setIsLoading(false);
       }else{
-
+        setJostand(JSON.parse(standDescription.text));
+       
         const responsePics = await fetch("/api/get-JojoStand-pictures",{
           method: "POST",
           headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ prompt: standDescription.text.apperance}),
+          body: JSON.stringify({ prompt: jojoStand.appearance}),
         });
 
         const standPics = await responsePics.json();
 
-        setJostand(JSON.parse(standDescription.text));
+        
         setPics(standPics.pics.data);
         console.log(JSON.stringify(jojoStand));
         setBigPic(standPics.pics.data[0].url)
