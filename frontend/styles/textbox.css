@@ -20,6 +20,11 @@
     background-color: rgb(216, 216, 216);
 }
 
+.noraml-text{
+    color:black;
+    background-color: white;
+}
+
 #textbox-nothing{
     width: 55vw;
     min-width: 550px;
