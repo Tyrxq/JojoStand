@@ -89,8 +89,8 @@ export default function Home() {
 
       <Pics pictures={pics} func={setBigPic} selector = {bigPic}/>
 
-
-      <Textbox submit={submit} func = {setInput} loading={isLoading} pics = {pics}/>
+      {pics.length === 0 ?  <Textbox submit={submit} func = {setInput} loading={isLoading} pics = {pics}/>  : <div> </div>}
+      
 
 
 
