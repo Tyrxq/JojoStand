@@ -84,6 +84,12 @@
     border-radius: 4px;
 }
 
+span{
+  position: relative;
+  bottom: 2px;
+  left:5px;
+}
+
 .loading-spinner {
   -webkit-animation-duration: 0.75s;
   -moz-animation-duration: 0.75s;
