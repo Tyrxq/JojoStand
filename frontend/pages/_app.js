@@ -13,7 +13,7 @@ export default function App({Component, pageProps}){
     return(
         <>
             <Head>
-                <title>Jojo's Stand Arrow</title>
+                <title>StandFinderX</title>
             </Head>
             <Navbar/>
             <Component {...pageProps}/>
