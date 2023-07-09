@@ -83,6 +83,13 @@ export default function Home() {
      
     <div className = {pics.length === 0 ? "generation-container-nothing" : "generation-container" }>
 
+      
+      <div className = {pics.length === 0 ? "about" : "invisible" }>
+        <h4>Unleash your unique Stand, drawing inspiration from the captivating Jojo's Bizarre Adventure Series. Infuse the AI model with intriguing details about your personality and mental fortitude, allowing it to craft a manifestation that mirrors your essence.</h4>
+        <hr/>
+        <p>Vulgar or harsh language will result in no generation. </p>
+      </div>
+
 
       <JojoInfo jojoStand={jojoStand} pic = {bigPic}/>
 
