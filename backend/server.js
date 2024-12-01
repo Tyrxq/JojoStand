@@ -94,9 +94,9 @@ async function chatJojo() {
 
 async function predict(appearance) {
     const response = await openai.images.generate({
-        model:"dall-e-3",
+        model:"dall-e-2",
         prompt: "A realistic photo of a generated stand from JoJo's Bizarre Adventure with a black background,anime key visual of Star Dust Platinum and no other objects in frame. Stand Appearance: " + appearance ,
-        n:1,
+        n:3,
         size: "1024x1024",
         response_format:'b64_json',
     });
