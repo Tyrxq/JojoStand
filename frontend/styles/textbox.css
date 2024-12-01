@@ -8,6 +8,7 @@
   width: 80vw;
   grid-template-columns: auto 1px;
   grid-template-rows: auto 1px;
+  margin-left: 2vw;
 }
 
 .text-container-nothing{
@@ -176,6 +177,7 @@ span{
     width: 100vw;
     grid-template-columns: auto 1px;
     grid-template-rows: auto 1px;
+    margin-left:0;
   }
 
   .text-container-nothing{
