@@ -30,7 +30,7 @@
   box-sizing: border-box;
   border: 2px solid #000000;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 20px;
   padding: 30px;
   resize: none;
   overflow: hidden;
@@ -54,7 +54,7 @@
     box-sizing: border-box;
     border: 2px solid #000000;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 20px;
     padding: 30px;
     resize: none;
     overflow: hidden;

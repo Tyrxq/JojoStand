@@ -28,14 +28,14 @@ const JojoInfo = ({jojoStand,pic}) => {
                 </div>
                 
                 <div className = "jojo-text">
-                    <h4 className ='ps-3'>Ability</h4>
+                    <h4 className ='ps-3 display-5'>Ability</h4>
                     <hr></hr>
                     
-                    <p className = "jojo-text-a ps-3">{jojoStand.ability}</p>
+                    <p className = "jojo-text-a ps-3 ">{jojoStand.ability}</p>
                     
                     
                     
-                    <h4 className ='ps-3'>Description</h4>
+                    <h4 className ='ps-3 pt-3 display-5'>Description</h4>
                     <hr></hr>
                     
                     <p className = "jojo-text-a ps-3" id = "last-text" >{jojoStand.description}</p>
