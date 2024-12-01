@@ -20,7 +20,7 @@ const JojoInfo = ({jojoStand,pic}) => {
                     <h2>{jojoStand.name}</h2>
                    <div className ='jojo-visual'>
                         <img id ="jojo-image" src={pic} />
-                        <JojoStats jojoStats={jojoStand.stats}/>
+                        <JojoStats jojoStats={jojoStand}/>
                        
                    </div>
     

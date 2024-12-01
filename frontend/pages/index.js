@@ -9,14 +9,12 @@ export default function Home() {
     
     const [jojoStand,setJostand] = useState({
         "name": "",
-        "stats": {
-            "destructivePower": "",
-            "speed": "",
-            "range": "",
-            "stamina":"",
-            "precision":"",
-            "devlopment": ""
-        },
+        "destructivePower": "",
+        "speed": "",
+        "range": "",
+        "stamina":"",
+        "precision":"",
+        "development": "",
         "ability": "",
         "appearance": "",
         "description": ""
