@@ -9,6 +9,7 @@ export const config = {
 async function predictFetch(appearance){
 
     const payload = {
+        model:"dall-e-2",
         prompt: "A realistic photo of a generated stand from JoJo's Bizarre Adventure with a black background,anime key visual of Star Dust Platinum, full body picture and no other objects in frame. Stand Appearance: " + appearance ,
         n: 3,
         size: "512x512",
