@@ -27,50 +27,73 @@ function lookForJson(data){
 
 async function generateFetch(userDescription) {
     const payload = {
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o",
       messages: [
         {
           role: "system",
-          content: `Generate your own random stand power from JoJo bizarre adventure in this json format from the user's personality and mental strength. And the ability should be described with 30 words or more. You must always only respond with this json format no matter what
-          {
-              "name": "",
-              "stats": {
-                  "destructivePower": "",
-                  "speed": "",
-                  "range": "",
-                  "stamina": "",
-                  "precision": "",
-                  "development": "",
-              },
-              "ability": "",
-              "appearance": "",
-              "description": ""
-          }
+          content: `Generate your own random stand power from JoJo bizarre adventure into JSON data from the user's personality and mental strength. And the ability should be described with 30 words or more.
           `,
         },
-        { role: "assistant", content: "Hello my name is Tyriq . I like to play chess, basketball and video games" },
         {
-          role: "assistant",
-          content: ` {
-              "name": "Mind Games",
-              "stats": {
-                  "destructivePower": "A",
-                  "speed": "A",
-                  "range": "C",
-                  "stamina": "B",
-                  "precision": "C",
-                  "development": "B"
-              },
-              "ability": "Mind Games allows Tyriq to manipulate the minds of his opponents, making them unable to focus or use their abilities. He can also create mental illusions and control his own mind to maximize his focus and strategy during games.",
-              "appearance": "A humanoid stand with a chess board pattern all over its body.",
-              "description": "Tyriq's love for strategy and competition has manifested into the stand Mind Games. With its ability to mess with his opponents' heads and enhance his own mental capabilities, Tyriq becomes an unbeatable force in 
-              anything that requires mental prowess. The chess board pattern all over the stand's body signifies Tyriq's love for this game and how his stand has embodied it."
-          }`,
-        },
-        { role: "user", content: userDescription },
+            role:"user",
+            content: userDescription
+        }
+
       ],
-      max_tokens: 1000
-    };
+      response_format: {
+          // See /docs/guides/structured-outputs
+          type: "json_schema",
+          json_schema: {
+              name: "jojoStand",
+              schema: {
+                  type: "object",
+                  properties: {
+                      standName: {
+                          description: "The name of the stand",
+                          type: "string"
+                      },
+                      destructivePower:{
+                          description: "Give a grade of the stand's destructive power from A-F ",
+                          type: "string"
+                      },
+                      speed:{
+                          description: "Give a grade of the stand's speed from A-F ",
+                          type: "string"
+                      },
+                      range:{
+                          description: "Give a grade of the stand's range from A-F ",
+                          type: "string"
+                      },
+                      stamina:{
+                          description: "Give a grade of the stand's stamina from A-F ",
+                          type: "string"
+                      },
+                      precision:{
+                          description:"Give a grade of the stand's precision from A-F",
+                          type:"string"
+                      },
+                      development:{
+                          description:"Give a grade of the stand's development from A-F",
+                          type: "string"
+                      },
+                      ability:{
+                          description:"Describe the stand's ability based off the user's personality and mental strength.",
+                          type: "string"
+                      },
+                      appearance:{
+                          description:"Describe the stand's appearance based off the user's personality and mental strength.",
+                          type: "string"
+                      },
+                      description:{
+                          description:"Give a description of the stand based off the user's personality and mental strength.",
+                          type: "string"
+                      }
+                  },
+                  additionalProperties: false
+              }
+          }
+      },
+    }
   
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       "headers": {
