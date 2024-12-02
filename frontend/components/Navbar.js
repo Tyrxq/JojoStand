@@ -11,7 +11,7 @@ const Navbar = () => {
                
                 <div className="row">
                     <div className="col-12 d-flex justify-content-center ">
-                        <h2 id = "navbar-title">Stand FinderX</h2>
+                        <h2 id = "navbar-title">Jojo's Stand Arrow</h2>
                     </div>
                     
                 </div>
